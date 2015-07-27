@@ -1,10 +1,12 @@
 **NOTE: This project is under active development. APIs subject to change.**
 
-# `doc-ast`
+# `doc-ast-spec`
 
 [![Chat][gitter-img]][gitter-url] [![Tip][amazon-img]][amazon-url]
 
-## Documentation AST Specification
+This document specifies the core Documentation AST node types.
+
+## Specification
 
 - Root
   - `type` _`String`_ - Always `"Documentation"`.
