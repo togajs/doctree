@@ -4,7 +4,7 @@
 
 [![Chat][gitter-img]][gitter-url] [![Tip][amazon-img]][amazon-url]
 
-This document specifies the core Documentation AST node types.
+This document specifies the core Documentation AST (DocAST) node types.
 
 ## Specification
 
@@ -23,7 +23,9 @@ This document specifies the core Documentation AST node types.
   - `name` _`String`_
   - `description` _`String`_
 
-### Example
+## Example
+
+Example JavaScript input:
 
 ```js
 /**
@@ -48,6 +50,8 @@ export default new class Utilities {
     }
 }
 ```
+
+Resulting DocAST output:
 
 ```json
 {
