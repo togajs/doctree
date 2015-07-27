@@ -1,5 +1,3 @@
-**NOTE: This project is under active development. APIs subject to change.**
-
 # `doc-ast-spec`
 
 [![Chat][gitter-img]][gitter-url] [![Tip][amazon-img]][amazon-url]
