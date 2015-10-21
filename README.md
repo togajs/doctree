@@ -5,7 +5,7 @@
 Many programming languages have related projects for parsing documentation out of specially-formatted comments used to generate human-readable help files and IDE tooltips. This [specification][spec] aims to standardize a representation of parsed documentation as a language-agnostic [abstract syntax tree][ast].
 
 [ast]: https://en.wikipedia.org/wiki/Abstract_syntax_tree
-[spec]: https://github.com/togajs/doctree/blob/master/spec.md
+[spec]: https://github.com/togajs/doctree/blob/master/spec.idl
 
 ## History
 
