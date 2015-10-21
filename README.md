@@ -1,25 +1,17 @@
-# `doc-ast-spec`
+# The DocTree Spec
 
-[![Chat][gitter-img]][gitter-url] [![Tip][amazon-img]][amazon-url]
+[![Chat][gitter-img]][gitter-url]
 
-This document specifies the core Documentation AST (DocAST) node types.
+Many programming languages have related projects for parsing documentation out of specially-formatted comments used to generate human-readable help files and IDE tooltips. This [specification][spec] aims to standardize a representation of parsed documentation as a language-agnostic [abstract syntax tree][ast].
 
-## Specification
+[ast]: https://en.wikipedia.org/wiki/Abstract_syntax_tree
+[spec]: https://github.com/togajs/doctree/blob/master/spec.md
 
-- Root
-  - `type` _`String`_ - Always `"Documentation"`.
-  - `body` _`Array.<CommentBlock>`_
-- CommentBlock
-  - `type` _`String`_ - Always `"CommentBlock"`.
-  - `description` _`String`_
-  - `tags` _`Array.<CommentBlockTag>`_
-  - `trailingCode` _`String`_
-- CommentBlockTag
-  - `type` _`String`_ - Always `"CommentBlockTag"`.
-  - `tag` _`String`_
-  - `kind` _`String`_
-  - `name` _`String`_
-  - `description` _`String`_
+## History
+
+Most documentation generators target a single language and produce their own unique output. For projects that incorporate multiple languages this dispairty can make it difficult to find, maintain, and share documentation across all project members.
+
+This specification is the result of the desire to create a single tool capable of producing unified documentation for an entire project regardless of the languages used.
 
 ## Example
 
@@ -44,17 +36,19 @@ export default new class Utilities {
      */
     escape(html) {
         return String(html)
-            .replace(...);
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
     }
 }
 ```
 
-Resulting DocAST output:
+Resulting DocTree AST as JSON:
 
 ```json
 {
     "type": "Documentation",
-    "body": [
+    "blocks": [
         {
             "type": "CommentBlock",
             "description": "# Utilities\n\nA library of utility methods.",
@@ -94,7 +88,7 @@ Resulting DocAST output:
                     "description": "Escaped html."
                 }
             ],
-            "trailingCode": "    escape(html) {\n        return String(html)\n            .replace(...);\n    }\n}"
+            "trailingCode": "    escape(html) {\n        return String(html)\n            .replace(/&/g, '&amp;')\n            .replace(/</g, '&lt;')\n            .replace(/>/g, '&gt;');\n    }\n}"
         }
     ]
 }
@@ -103,8 +97,25 @@ Resulting DocAST output:
 ## In the Wild
 
 - [Tunic](https://github.com/togajs/tunic) - A customizable documentation comment parser.
-- [toga-css](https://github.com/togajs/toga-css) - A CSS-specific documentation comment parser.
-- [toga-js](https://github.com/togajs/toga-js) - A JS-specific documentation comment parser.
+
+## Influences
+
+### AST
+
+- [ESTree](https://github.com/estree/estree)
+- [Shift AST](https://github.com/shapesecurity/shift-spec)
+
+### Generators
+
+- [Docco](https://github.com/jashkenas/docco)
+- [Doxygen](https://en.wikipedia.org/wiki/Doxygen)
+- [Javadoc](https://en.wikipedia.org/wiki/Javadoc)
+- [JSDoc](https://en.wikipedia.org/wiki/JSDoc)
+- [Pandoc](https://en.wikipedia.org/wiki/Pandoc)
+- [Perldoc (pod)](https://en.wikipedia.org/wiki/Perldoc)
+- [PHPDoc](https://en.wikipedia.org/wiki/PHPDoc)
+- [RDoc](https://en.wikipedia.org/wiki/RDoc)
+- [Sphinx](https://en.wikipedia.org/wiki/Sphinx_%28documentation_generator%29)
 
 ----
 
@@ -112,7 +123,5 @@ Resulting DocAST output:
 
 Licensed under [MIT](http://shannonmoeller.com/mit.txt)
 
-[amazon-img]:    https://img.shields.io/badge/amazon-tip_jar-yellow.svg?style=flat-square
-[amazon-url]:    https://www.amazon.com/gp/registry/wishlist/1VQM9ID04YPC5?sort=universal-price
-[gitter-img]:    http://img.shields.io/badge/gitter-join_chat-1dce73.svg?style=flat-square
-[gitter-url]:    https://gitter.im/togajs/toga
+[gitter-img]: http://img.shields.io/badge/gitter-join_chat-1dce73.svg?style=flat-square
+[gitter-url]: https://gitter.im/togajs/doctree
