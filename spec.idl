@@ -23,20 +23,30 @@
 
 interface Documentation {
     const string type = "Documentation";
-    attribute CommentBlock?[] blocks;
+    attribute Block[]? blocks;
 };
 
-interface CommentBlock {
-    const string type = "CommentBlock";
+interface Block {
+    const string type = "Block";
+    attribute Comment? comment;
+    attribute Code? code;
+};
+
+interface Comment {
+    const string type = "Comment";
     attribute string? description;
-    attribute string trailingCode;
-    attribute CommentBlockTag?[] tags;
+    attribute Tag[]? tags;
 };
 
-interface CommentBlockTag {
-    const string type = "CommentBlockTag";
+interface Tag {
+    const string type = "Tag";
     attribute string tag;
     attribute string? kind;
     attribute string? name;
     attribute string? description;
+};
+
+interface Code {
+    const string type = "Code";
+    attribute string? code;
 };

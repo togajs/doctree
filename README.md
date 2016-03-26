@@ -50,46 +50,57 @@ Resulting DocTree AST as JSON:
     "type": "Documentation",
     "blocks": [
         {
-            "type": "CommentBlock",
-            "description": "# Utilities\n\nA library of utility methods.",
-            "tags": [
-                {
-                    "type": "CommentBlockTag",
-                    "tag": "class",
-                    "name": "Utilities"
-                },
-                {
-                    "type": "CommentBlockTag",
-                    "tag": "static"
-                }
-            ],
-            "trailingCode": "export default new class Utilities {"
+            "type": "Block",
+            "comment": {
+                "type": "Comment",
+                "description": "# Utilities\n\nA library of utility methods.",
+                "tags": [
+                    {
+                        "type": "Tag",
+                        "tag": "class",
+                        "name": "Utilities"
+                    },
+                    {
+                        "type": "Tag",
+                        "tag": "static"
+                    }
+                ]
+            },
+            "code": {
+                "type": "Code",
+                "code": "export default new class Utilities {"
+            }
         },
         {
-            "type": "CommentBlock",
-            "description": "Escapes the given `html`.",
-            "tags": [
-                {
-                    "type": "CommentBlockTag",
-                    "tag": "method",
-                    "name": "escape"
-                },
-                {
-                    "type": "CommentBlockTag",
-                    "tag": "param",
-                    "kind": "String",
-                    "name": "html",
-                    "description": "String to escape."
-                },
-                {
-                    "type": "CommentBlockTag",
-                    "tag": "return",
-                    "kind": "String",
-                    "description": "Escaped html."
-                }
-            ],
-            "trailingCode": "    escape(html) {\n        return String(html)\n            .replace(/&/g, '&amp;')\n            .replace(/</g, '&lt;')\n            .replace(/>/g, '&gt;');\n    }\n}"
-        }
+            "type": "Block",
+            "comment": {
+                "type": "Comment",
+                "description": "Escapes the given `html`.",
+                "tags": [
+                    {
+                        "type": "Tag",
+                        "tag": "method",
+                        "name": "escape"
+                    },
+                    {
+                        "type": "Tag",
+                        "tag": "param",
+                        "kind": "String",
+                        "name": "html",
+                        "description": "String to escape."
+                    },
+                    {
+                        "type": "Tag",
+                        "tag": "return",
+                        "kind": "String",
+                        "description": "Escaped html."
+                    }
+                ]
+            },
+            "code": {
+                "type": "Code",
+                "code": "    escape(html) {\n        return String(html)\n            .replace(/&/g, '&amp;')\n            .replace(/</g, '&lt;')\n            .replace(/>/g, '&gt;');\n    }\n}"
+            }
     ]
 }
 ```
