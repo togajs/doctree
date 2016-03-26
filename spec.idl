@@ -23,14 +23,14 @@
 
 interface Documentation : Node {
     const string type = "Documentation";
-    attribute CommentBlock?[] blocks;
+    attribute CommentBlock[]? blocks;
 };
 
 interface CommentBlock : Node {
     const string type = "CommentBlock";
     attribute string? description;
     attribute string trailingCode;
-    attribute CommentBlockTag?[] tags;
+    attribute CommentBlockTag[]? tags;
 };
 
 interface CommentBlockTag : Node {
