@@ -21,38 +21,22 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-interface Documentation : Node {
+interface Documentation {
     const string type = "Documentation";
     attribute CommentBlock?[] blocks;
 };
 
-interface CommentBlock : Node {
+interface CommentBlock {
     const string type = "CommentBlock";
     attribute string? description;
     attribute string trailingCode;
     attribute CommentBlockTag?[] tags;
 };
 
-interface CommentBlockTag : Node {
+interface CommentBlockTag {
     const string type = "CommentBlockTag";
     attribute string tag;
     attribute string? kind;
     attribute string? name;
     attribute string? description;
-};
-
-interface Node {
-    attribute SourceSpan? loc;
-};
-
-interface SourceSpan {
-    attribute string? source;
-    attribute SourceLocation start;
-    attribute SourceLocation end;
-};
-
-interface SourceLocation {
-    attribute unsigned long line;
-    attribute unsigned long column;
-    attribute unsigned long offset;
 };
