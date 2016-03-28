@@ -26,7 +26,7 @@ Example JavaScript input:
  * @class Utilites
  * @static
  */
-export default new class Utilities {
+export const Utilities = {
     /**
      * Escapes the given `html`.
      *
@@ -68,7 +68,7 @@ Resulting DocTree AST as JSON:
             },
             "code": {
                 "type": "Code",
-                "code": "export default new class Utilities {"
+                "code": "export const Utilities = {"
             }
         },
         {
