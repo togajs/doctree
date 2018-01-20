@@ -131,9 +131,7 @@ Resulting DocTree AST as JSON:
 
 ----
 
-© 2015 Shannon Moeller <me@shannonmoeller.com>
-
-Licensed under [MIT](http://shannonmoeller.com/mit.txt)
+MIT © [Shannon Moeller](http://shannonmoeller.com)
 
 [gitter-img]: http://img.shields.io/badge/gitter-join_chat-1dce73.svg?style=flat-square
 [gitter-url]: https://gitter.im/togajs/doctree
